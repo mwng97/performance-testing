@@ -9,7 +9,7 @@
     <hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="958026245">
+          <collectionProp name="-1077029753">
             <stringProp name="51">3</stringProp>
             <stringProp name="1567">10</stringProp>
             <stringProp name="1567">10</stringProp>
@@ -61,7 +61,7 @@
             <stringProp name="variableNames">email,password</stringProp>
           </CSVDataSet>
           <hashTree/>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments">
               <elementProp name="V_SCHEME" elementType="Argument">
                 <stringProp name="Argument.name">V_SCHEME</stringProp>
@@ -87,7 +87,7 @@
             <boolProp name="CacheManager.controlledByThread">false</boolProp>
           </CacheManager>
           <hashTree/>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="01_Login" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="01_Login">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -124,7 +124,7 @@
             </HTTPSamplerProxy>
             <hashTree/>
           </hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="02_Browse Product" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="02_Browse Product">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -636,7 +636,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">C:\Users\Gan\Desktop\Technical Test @HMI\View-Results-Tree.csv</stringProp>
+          <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report">
@@ -755,7 +755,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">C:\Users\Gan\Desktop\Technical Test @HMI\Active-Thread-Over-Time.csv</stringProp>
+          <stringProp name="filename"></stringProp>
           <longProp name="interval_grouping">500</longProp>
           <boolProp name="graph_aggregated">false</boolProp>
           <stringProp name="include_sample_labels"></stringProp>
