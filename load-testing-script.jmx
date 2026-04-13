@@ -5,22 +5,24 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-1077029753">
+          <collectionProp name="73912891">
             <stringProp name="51">3</stringProp>
+            <stringProp name="48">0</stringProp>
             <stringProp name="1567">10</stringProp>
-            <stringProp name="1567">10</stringProp>
-            <stringProp name="1567">10</stringProp>
+            <stringProp name="1722">60</stringProp>
             <stringProp name="1567">10</stringProp>
           </collectionProp>
-          <collectionProp name="-1077029753">
+          <collectionProp name="-971287234">
             <stringProp name="51">3</stringProp>
+            <stringProp name="1598">20</stringProp>
             <stringProp name="1567">10</stringProp>
-            <stringProp name="1567">10</stringProp>
-            <stringProp name="1567">10</stringProp>
+            <stringProp name="1691">50</stringProp>
             <stringProp name="1567">10</stringProp>
           </collectionProp>
         </collectionProp>
@@ -37,7 +39,7 @@
           <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
         </CookieManager>
         <hashTree/>
-        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
           <stringProp name="HTTPSampler.domain">${V_HOST}</stringProp>
           <stringProp name="HTTPSampler.port">${V_PORT}</stringProp>
           <stringProp name="HTTPSampler.protocol">${V_SCHEME}</stringProp>
@@ -47,12 +49,17 @@
           <stringProp name="HTTPSampler.implementation"></stringProp>
         </ConfigTestElement>
         <hashTree/>
+        <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer">
+          <stringProp name="ConstantTimer.delay">2000</stringProp>
+          <stringProp name="RandomTimer.range">3000</stringProp>
+        </UniformRandomTimer>
+        <hashTree/>
         <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller"/>
         <hashTree>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config- Login">
             <stringProp name="delimiter">,</stringProp>
             <stringProp name="fileEncoding"></stringProp>
-            <stringProp name="filename">{Change-To-Your-Path}/login.csv</stringProp>
+            <stringProp name="filename">{Your-Filepath}/login.csv</stringProp>
             <boolProp name="ignoreFirstLine">true</boolProp>
             <boolProp name="quotedData">false</boolProp>
             <boolProp name="recycle">false</boolProp>
@@ -61,7 +68,7 @@
             <stringProp name="variableNames">email,password</stringProp>
           </CSVDataSet>
           <hashTree/>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="V_SCHEME" elementType="Argument">
                 <stringProp name="Argument.name">V_SCHEME</stringProp>
@@ -81,13 +88,14 @@
             </collectionProp>
           </Arguments>
           <hashTree/>
-          <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager">
+          <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
             <boolProp name="clearEachIteration">true</boolProp>
             <boolProp name="useExpires">true</boolProp>
             <boolProp name="CacheManager.controlledByThread">false</boolProp>
           </CacheManager>
           <hashTree/>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="01_Login">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -125,10 +133,11 @@
             <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="02_Browse Product">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="002 /books (user=${email})">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="002 /books (user=${email})" enabled="true">
               <stringProp name="HTTPSampler.path">/books</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -140,10 +149,11 @@
             <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="03_Select Product">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="003 /computing-and-internet (user=${email})">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="003 /computing-and-internet (user=${email})" enabled="true">
               <stringProp name="HTTPSampler.path">/computing-and-internet</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -155,10 +165,11 @@
             <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="04_Add Product to Shopping Cart">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="004 /addproducttocart/details/13/1 (user=${email})">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="004 /addproducttocart/details/13/1 (user=${email})" enabled="true">
               <stringProp name="HTTPSampler.path">/addproducttocart/details/13/1</stringProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -178,10 +189,11 @@
             <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="05_Go To Shopping Cart">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="005 /cart (user=${email})">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="005 /cart (user=${email})" enabled="true">
               <stringProp name="HTTPSampler.path">/cart</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -193,10 +205,11 @@
             <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="06_Checkout">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="006 /cart (user=${email})">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="006 /cart (user=${email})" enabled="true">
               <stringProp name="HTTPSampler.path">/cart</stringProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -264,7 +277,7 @@
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="007 /checkout  (user=${email})">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="007 /checkout  (user=${email})" enabled="true">
               <stringProp name="HTTPSampler.path">/checkout</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -274,7 +287,7 @@
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="008 /onepagecheckout  (user=${email})">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="008 /onepagecheckout  (user=${email})" enabled="true">
               <stringProp name="HTTPSampler.path">/onepagecheckout</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -286,6 +299,7 @@
             <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="07_Checkout Fill Info">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -572,6 +586,7 @@
             <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="08_Complete Order">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
@@ -587,10 +602,11 @@
             <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="09_Logout">
+            <boolProp name="TransactionController.parent">true</boolProp>
             <boolProp name="TransactionController.includeTimers">false</boolProp>
           </TransactionController>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="016 /logout (user=${email})">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="016 /logout (user=${email})" enabled="true">
               <stringProp name="HTTPSampler.path">/logout</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -602,7 +618,7 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -713,14 +729,6 @@
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save Responses to a file">
-          <stringProp name="FileSaver.filename"></stringProp>
-          <boolProp name="FileSaver.errorsonly">true</boolProp>
-          <boolProp name="FileSaver.successonly">true</boolProp>
-          <boolProp name="FileSaver.skipsuffix">false</boolProp>
-          <boolProp name="FileSaver.skipautonumber">false</boolProp>
-        </ResultSaver>
-        <hashTree/>
         <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Active Threads Over Time">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
@@ -757,6 +765,141 @@
           </objProp>
           <stringProp name="filename"></stringProp>
           <longProp name="interval_grouping">500</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+        </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+        <hashTree/>
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">500</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+        </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+        <hashTree/>
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+        </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+        <hashTree/>
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseCodesPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Codes per Second">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
           <boolProp name="graph_aggregated">false</boolProp>
           <stringProp name="include_sample_labels"></stringProp>
           <stringProp name="exclude_sample_labels"></stringProp>
